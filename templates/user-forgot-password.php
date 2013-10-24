@@ -12,15 +12,10 @@ if ( is_user_logged_in() ) {
 <?php get_header(); ?>
 
 <h3><?php _e( 'Lost your password?', UF_TEXTDOMAIN ); ?></h3>
-<?php
-	$message = apply_filters( 'uf_forgot_password_messages', isset( $_GET[ 'message' ] ) ? $_GET[ 'message' ] : '' );
-	echo $message;
+<?php echo apply_filters( 'uf_forgot_password_messages', isset( $_GET[ 'message' ] ) ? $_GET[ 'message' ] : '' ); ?>
 
-	// defining the action
-	$the_action = 'forgot_password';
-?>
-<form action="<?php echo UF_ACTION_URL; ?>?action=<?php echo $the_action; ?>" method="post">
-	<?php wp_nonce_field( $the_action, 'wp_uf_nonce_' . $the_action ); ?>
+<form action="<?php echo uf_get_action_url( 'forgot_password' ); ?>" method="post">
+	<?php wp_nonce_field( 'forgot_password', 'wp_uf_nonce_forgot_password' ); ?>
 	<p>
 		<?php _e( 'Please enter your username or email address. You will receive a link to create a new password via email.' ) ?>
 	</p>

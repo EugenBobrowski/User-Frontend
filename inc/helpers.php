@@ -6,6 +6,34 @@
  * Licence:			GPLv3
  */
 
+// function to load the action url for the forms
+function uf_get_action_url( $action ) {
+	
+	return home_url( '/user-action/?action=' . $action );
+}
+
+// standard login form arguments
+function uf_login_form_args() {
+	$args = array(
+		'echo'				=> TRUE,
+		'redirect'			=> ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], // Default redirect is back to the current page
+		'form_id'			=> 'loginform',
+		'label_username'	=> __( 'Username' ),
+		'label_password'	=> __( 'Password' ),
+		'label_remember'	=> __( 'Remember Me' ),
+		'label_log_in'		=> __( 'Log In' ),
+		'id_username'		=> 'user_login',
+		'id_password'		=> 'user_pass',
+		'id_remember'		=> 'rememberme',
+		'id_submit'			=> 'wp-submit',
+		'remember'			=> TRUE,
+		'value_username'	=> '',
+		'value_remember'	=> FALSE, // Set this to true to default the "Remember me" checkbox to checked
+	);
+	
+	return apply_filters( 'uf_login_form_args', $args );
+}
+
 // on submit, we have to store the post and get
 // vars in session to get them back after redirect..
 add_action( 'uf_set_request_vars', 'uf_set_request_vars' );
@@ -67,7 +95,7 @@ function uf_login_url( $url, $redirect = '' ) {
 	$login_url = home_url( '/user-login/' );
 
 	if ( ! empty( $redirect ) )
-		$login_url = add_query_arg('redirect_to', urlencode( $redirect ), $login_url );
+		$login_url = add_query_arg( 'redirect_to', urlencode( $redirect ), $login_url );
 
 	return $login_url;
 }
@@ -79,11 +107,11 @@ function uf_logout_url( $url, $redirect = '' ) {
 	if ( ! empty( $redirect ) )
 		$args[ 'redirect_to' ] = urlencode( $redirect );
 
-	$logout_url = add_query_arg( $args, UF_ACTION_URL );
+	$logout_url = add_query_arg( $args, home_url( '/' ) );
 	$logout_url = str_replace( '&amp;', '&', $logout_url );
-	$logout_url = add_query_arg( 'uf_nonce_logout', wp_create_nonce( 'logout' ), $logout_url );
+	$logout_url = add_query_arg( 'wp_uf_nonce_logout', wp_create_nonce( 'logout' ), $logout_url );
 	$logout_url = esc_html( $logout_url );
-
+	
 	return $logout_url;
 }
 

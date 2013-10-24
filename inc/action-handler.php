@@ -6,12 +6,14 @@
  * Licence:			GPLv3
  */
 
-add_action( 'wp_loaded', 'uf_wp_loaded' );
-function uf_wp_loaded() {
+// handles all the incoming actions
+add_action( 'init', 'uf_action_handler' );
+function uf_action_handler() {
+	
 	// checking the action
 	if ( ! isset( $_REQUEST[ 'action' ] ) || ! has_action( 'uf_' .$_REQUEST[ 'action' ] ) )
 		return FALSE;
-	
+
 	//checking the nonce
 	$nonce_request_key = 'wp_uf_nonce_' . $_REQUEST[ 'action' ];
 	if ( ! isset( $_REQUEST[ $nonce_request_key ] ) || ! wp_verify_nonce( $_REQUEST[ $nonce_request_key ], $_REQUEST[ 'action' ] ) )

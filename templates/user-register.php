@@ -8,19 +8,13 @@ if ( is_user_logged_in() ) {
 	wp_safe_redirect( get_bloginfo( 'url' ) . '/user-profile/' );
 	exit;
 }
-
 get_header(); ?>
 
 <h2><?php _e( 'Register', UF_TEXTDOMAIN ); ?></h2>
-<?php
-	$message = apply_filters( 'uf_register_messages', isset( $_GET[ 'message' ] ) ? $_GET[ 'message' ] : '' );
-	echo $message;
+<?php echo apply_filters( 'uf_register_messages', isset( $_GET[ 'message' ] ) ? $_GET[ 'message' ] : '' ); ?>
 
-	// defining the action
-	$the_action = 'register';
-?>
-<form action="<?php echo UF_ACTION_URL; ?>?action=<?php echo $the_action; ?>" method="post">
-	<?php wp_nonce_field( $the_action, 'wp_uf_nonce_' . $the_action ); ?>
+<form action="<?php echo uf_get_action_url( 'register' ); ?>" method="post">
+	<?php wp_nonce_field( 'register', 'wp_uf_nonce_register' ); ?>
 
 	<table class="form-table">
 		<tr>

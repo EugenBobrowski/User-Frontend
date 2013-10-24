@@ -12,15 +12,10 @@ if ( is_user_logged_in() ) {
 <?php get_header(); ?>
 
 <h3><?php _e( 'Activation', UF_TEXTDOMAIN ); ?></h3>
-<?php
-	$message = apply_filters( 'uf_activation_messages', isset( $_GET[ 'message' ] ) ? $_GET[ 'message' ] : '' );
-	echo $message;
+<?php echo apply_filters( 'uf_activation_messages', isset( $_GET[ 'message' ] ) ? $_GET[ 'message' ] : '' ); ?>
 
-	// defining the action
-	$the_action = 'activation';
-?>
-<form action="<?php echo UF_ACTION_URL; ?>?action=activation" method="post">
-	<?php wp_nonce_field( $the_action, 'wp_uf_nonce_' . $the_action ); ?>
+<form action="<?php echo uf_get_action_url( 'activation' ); ?>" method="post">
+	<?php wp_nonce_field( 'activation', 'wp_uf_nonce_activation' ); ?>
 
 	<p>
 		<?php _e( 'Please enter your key.', UF_TEXTDOMAIN ) ?>

@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:	User Frontend
- * Description:	This plugin provides 
+ * Description:	This plugin restricts the access to the admin panel and provides register, profile, login and logout features inside of the theme. 
  * Version:		1.0
  * Author:		HerrLlama for Inpsyde GmbH
  * Author URI:	http://inpsyde.com
@@ -14,7 +14,6 @@ if ( ! function_exists( 'add_action' ) )
 
 // constants
 define( 'UF_TEXTDOMAIN', 'user-frontend-td' );
-define( 'UF_ACTION_URL', get_bloginfo( 'url' ) . '/wp-load.php' );
 
 // kickoff
 add_action( 'plugins_loaded', 'uf_init' );
@@ -35,7 +34,7 @@ function uf_init() {
 	// scripts
 	require_once dirname( __FILE__ ) . '/inc/scripts.php';
 	
-	// template includes and action handler
+	// template includes and the action handler
 	require_once dirname( __FILE__ ) . '/inc/template-loader.php';
 	require_once dirname( __FILE__ ) . '/inc/action-handler.php';
 	

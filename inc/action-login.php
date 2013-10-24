@@ -33,11 +33,11 @@ function uf_perform_login() {
 
 	// signon user
 	$user = wp_signon( $credentials );
-
+	
 	// check login
 	if ( ! is_wp_error( $user ) ) {
 		if ( isset( $_POST[ 'redirect_to' ] ) && trim( $_POST[ 'redirect_to' ] ) != '' )
-			wp_safe_redirect( $_POST[ 'redirect_to' ] );
+			wp_redirect( $_POST[ 'redirect_to' ] );
 		else
 			wp_safe_redirect( home_url( '/user-profile/' ) );
 		exit;
@@ -49,6 +49,7 @@ function uf_perform_login() {
 
 add_action( 'uf_login_messages', 'uf_login_messages' );
 function uf_login_messages( $message ) {
+	
 	switch ( $message ) {
 		case 'nodata':
 			?><div class="error"><p><?php _e( 'We need some input values to handle the login.', UF_TEXTDOMAIN ); ?></p></div><?php
@@ -64,6 +65,9 @@ function uf_login_messages( $message ) {
 			break;
 		case 'regdisabled':
 			?><div class="error"><p><?php _e( 'Registration is currently disabled.', UF_TEXTDOMAIN ); ?></p></div><?php
+			break;
+		case 'loggedout':
+			?><div class="updated"><p><?php _e( 'You have been successfully logged out.', UF_TEXTDOMAIN ); ?></p></div><?php
 			break;
 		default:
 			break;

@@ -17,15 +17,10 @@ $profileuser = $user;
 <?php get_header(); ?>
 
 <h2><?php _e( 'Profile', UF_TEXTDOMAIN ); ?></h2>
-<?php
-	$message = apply_filters( 'uf_profile_messages', isset( $_GET[ 'message' ] ) ? $_GET[ 'message' ] : '' );
-	echo $message;
+<?php echo apply_filters( 'uf_profile_messages', isset( $_GET[ 'message' ] ) ? $_GET[ 'message' ] : '' ); ?>
 
-	// defining the action
-	$the_action = 'profile';
-?>
-<form action="<?php echo UF_ACTION_URL; ?>?action=<?php echo $the_action; ?>" method="post" <?php do_action( 'user_edit_form_tag' ); ?>>
-	<?php wp_nonce_field( $the_action, 'wp_uf_nonce_' . $the_action ); ?>
+<form action="<?php echo uf_get_action_url( 'profile' ); ?>" method="post" <?php do_action( 'user_edit_form_tag' ); ?>>
+	<?php wp_nonce_field( 'profile', 'wp_uf_nonce_profile' ); ?>
 
 	<h3><?php _e( 'Name' ) ?></h3>
 

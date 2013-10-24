@@ -9,6 +9,10 @@
 add_action( 'template_include', 'uf_template_include' );
 function uf_template_include( $template ) {
 	
+	// check if we have an action or a template
+	if ( get_query_var( 'uf' ) == 'user-action' )
+		return;
+	
 	$user_template = get_query_template( get_query_var( 'uf' ) );
 	$new_template = plugin_dir_path( __FILE__ ) . '../templates/' . get_query_var( 'uf' ) . '.php';
 	$is_uf = FALSE;
@@ -36,6 +40,7 @@ add_action( 'generate_rewrite_rules', 'uf_generate_rewrite_rules' );
 function uf_generate_rewrite_rules( $wp_rewrite ) {
 
 	$rules = array(
+		'user-action'								=> 'index.php?uf=user-action',
 		'user-login'								=> 'index.php?uf=user-login',
 		'user-profile'								=> 'index.php?uf=user-profile',
 		'user-register'								=> 'index.php?uf=user-register',
