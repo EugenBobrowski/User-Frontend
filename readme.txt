@@ -1,9 +1,9 @@
 === User Frontend ===
-Contributors: Inpsyde, HerrLlama
+Contributors: inpsyde, HerrLlama
 Donate Link: http://inpsyde.com
 Tags: user, profile, login, logout, frontend, theme, multisite
 Requires at least: 3.6
-Tested up to: 3.6
+Tested up to: 3.7.1
 Stable tag: 1.0
 License: GPLv3
 
