@@ -2,7 +2,7 @@
 /**
  * Plugin Name:	User Frontend
  * Description:	This plugin restricts the access to the admin panel and provides register, profile, login and logout features inside of the theme. 
- * Version:		1.0
+ * Version:		1.0.1
  * Author:		HerrLlama for Inpsyde GmbH
  * Author URI:	http://inpsyde.com
  * Licence:		GPLv3
