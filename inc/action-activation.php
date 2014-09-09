@@ -1,12 +1,17 @@
 <?php
 /**
- * Feature Name:	Action Activation
- * Author:			HerrLlama for Inpsyde GmbH
- * Author URI:		http://inpsyde.com
- * Licence:			GPLv3
+ * Feature Name: Action Activation
+ * Author:       HerrLlama for wpcoding.de
+ * Author URI:   http://wpcoding.de
+ * Licence:      GPLv3
  */
 
-add_action( 'uf_activation', 'uf_perform_activation' );
+/**
+ * Activates a user if it is necessary
+ *
+ * @wp-hook	uf_activation
+ * @return	void
+ */
 function uf_perform_activation() {
 
 	if ( ! isset( $_POST[ 'user_key' ] ) ) {
@@ -39,11 +44,16 @@ function uf_perform_activation() {
 	}
 }
 
-add_action( 'uf_activation_messages', 'uf_activation_messages' );
+/**
+ * Displays a message
+ *
+ * @wp-hook	uf_activation_messages
+ * @param	string $message the message id
+ */
 function uf_activation_messages( $message ) {
 	switch ( $message ) {
 		case 'keynotvalid':
-			?><div class="error"><p><?php _e( 'The key is not valid.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'The key is not valid.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		default:
 			break;

@@ -1,0 +1,534 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: User Frontend v1.0.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-09-09 14:30:39+0000\n"
+"Last-Translator: admin <hallo@wpcoding.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: inc/action-activation.php:56
+#@ user-frontend-td
+msgid "The key is not valid."
+msgstr "Der Key ist nicht valid."
+
+#: inc/action-forgot-password.php:38
+#@ default
+msgid "<strong>ERROR</strong>: Enter a username or e-mail address."
+msgstr ""
+
+#: inc/action-forgot-password.php:42
+#@ default
+msgid "<strong>ERROR</strong>: There is no user registered with that email address."
+msgstr ""
+
+#: inc/action-forgot-password.php:54
+#@ default
+msgid "<strong>ERROR</strong>: Invalid username or e-mail."
+msgstr ""
+
+#: inc/action-forgot-password.php:68
+#@ default
+msgid "Password reset is not allowed for this user"
+msgstr ""
+
+#: inc/action-forgot-password.php:80
+#@ default
+msgid "Someone requested that the password be reset for the following account:"
+msgstr ""
+
+#: inc/action-forgot-password.php:82
+#, php-format
+#@ default
+msgid "Username: %s"
+msgstr ""
+
+#: inc/action-forgot-password.php:83
+#@ default
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr ""
+
+#: inc/action-forgot-password.php:84
+#@ default
+msgid "To reset your password, visit the following address:"
+msgstr ""
+
+#: inc/action-forgot-password.php:94
+#, php-format
+#@ default
+msgid "[%s] Password Reset"
+msgstr ""
+
+#: inc/action-forgot-password.php:100
+#@ default
+msgid "The e-mail could not be sent."
+msgstr ""
+
+#: inc/action-forgot-password.php:100
+#@ default
+msgid "Possible reason: your host may have disabled the mail() function..."
+msgstr ""
+
+#: inc/action-forgot-password.php:114
+#@ user-frontend-td
+msgid "Check your e-mail for the confirmation link."
+msgstr "Überprüfe deine E-Mails für den Bestätigungslink."
+
+#: inc/action-forgot-password.php:117
+#@ user-frontend-td
+msgid "Please enter something."
+msgstr "Bitte gib irgendwas ein :)"
+
+#: inc/action-forgot-password.php:120
+#@ user-frontend-td
+msgid "The E-Mail address is not valid."
+msgstr "Die E-Mail-Adresse ist nicht valid."
+
+#: inc/action-forgot-password.php:123
+#@ user-frontend-td
+msgid "Your input doesn't match anything."
+msgstr "Deine Eingabe stimmt nicht überein."
+
+#: inc/action-forgot-password.php:126
+#@ user-frontend-td
+msgid "This action is not allowed."
+msgstr "Diese Aktion ist nicht erlaubt."
+
+#: inc/action-login.php:66
+#@ user-frontend-td
+msgid "We need some input values to handle the login."
+msgstr "Wir benötigen schon irgendwelche Eingaben, um den Login durchzuführen."
+
+#: inc/action-login.php:69
+#@ user-frontend-td
+msgid "Username or password is incorrect."
+msgstr "Benutzername oder Passwort sind falsch."
+
+#: inc/action-login.php:72
+#@ user-frontend-td
+msgid "Password has been resetted."
+msgstr "Das Passwort wurde zurück gesetzt."
+
+#: inc/action-login.php:75
+#@ user-frontend-td
+msgid "You have been successfully registered. Please check your mail for your credentials and more informations."
+msgstr "Du hast dich erfolgreich registriert. Bitte überprüfe deine E-Mails für die Logindaten."
+
+#: inc/action-login.php:78
+#@ user-frontend-td
+msgid "Registration is currently disabled."
+msgstr "Die Registrierung ist derzeit nicht aktiv."
+
+#: inc/action-login.php:81
+#@ user-frontend-td
+msgid "You have been successfully logged out."
+msgstr "Du wurdest erfolgreich ausgeloggt."
+
+#: inc/action-login.php:84
+#@ user-frontend-td
+msgid "Your account has been temporarily deactivated."
+msgstr "Dein Account wurde temporär deaktiviert."
+
+#: inc/action-profile.php:49
+#@ user-frontend-td
+msgid "Profile has been updated."
+msgstr "Das Profil wurde gespeichert."
+
+#: inc/action-profile.php:52
+#@ user-frontend-td
+msgid "The passwords mismatch."
+msgstr "Die Passwörter stimmen nicht überein."
+
+#: inc/action-profile.php:55
+#@ user-frontend-td
+msgid "E-Mail address is not valid."
+msgstr "Die E-Mailadresse ist nicht valid."
+
+#: inc/action-profile.php:58
+#@ user-frontend-td
+msgid "Please enter an E-Mail address."
+msgstr "Bitte gib eine E-Mailadresse an."
+
+#: inc/action-profile.php:61
+#@ user-frontend-td
+msgid "This email is already registered, please choose another one."
+msgstr "Die E-Mailadresse wurde bereits registriert. Bitte benutze eine andere."
+
+#: inc/action-profile.php:64
+#@ user-frontend-td
+msgid "Your account has been activated. Now you can edit your profile."
+msgstr "Dein Account wurde aktiviert. Du kannst nun dein Profil editieren."
+
+#: inc/action-register.php:111
+#@ default
+msgid "<strong>ERROR</strong>: Please enter a username."
+msgstr ""
+
+#: inc/action-register.php:113
+#@ default
+msgid "<strong>ERROR</strong>: This username is invalid because it uses illegal characters. Please enter a valid username."
+msgstr ""
+
+#: inc/action-register.php:116
+#@ default
+msgid "<strong>ERROR</strong>: This username is already registered. Please choose another one."
+msgstr ""
+
+#: inc/action-register.php:121
+#@ default
+msgid "<strong>ERROR</strong>: Please type your e-mail address."
+msgstr ""
+
+#: inc/action-register.php:123
+#@ default
+msgid "<strong>ERROR</strong>: The email address isn&#8217;t correct."
+msgstr ""
+
+#: inc/action-register.php:126
+#@ default
+msgid "<strong>ERROR</strong>: This email is already registered, please choose another one."
+msgstr ""
+
+#: inc/action-register.php:139
+#, php-format
+#@ default
+msgid "<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a href=\"mailto:%s\">webmaster</a> !"
+msgstr ""
+
+#: inc/action-register.php:171
+#, php-format
+#@ default
+msgid ""
+"To activate your user, please click the following link:\n"
+"\n"
+"%s\n"
+"\n"
+"After you activate, you will receive *another email* with your login."
+msgstr ""
+
+#: inc/action-register.php:179
+#, php-format
+#@ default
+msgid "[%1$s] Activate %2$s"
+msgstr ""
+
+#: inc/action-register.php:203
+#@ user-frontend-td
+msgid "Invalid Username."
+msgstr "Invalider Benutzername."
+
+#: inc/action-register.php:206
+#@ user-frontend-td
+msgid "This username exists."
+msgstr "Dieser Benutzer existiert bereit."
+
+#: inc/action-register.php:211
+#@ user-frontend-td
+msgid "Invalid E-Mail address."
+msgstr "Invalide E-Mail Adresse."
+
+#: inc/action-register.php:215
+#@ user-frontend-td
+msgid "E-Mail exists."
+msgstr "Diese E-Mailadresse existiert bereits."
+
+#: inc/action-register.php:218
+#@ user-frontend-td
+msgid "Something went wrong. Please consult the administrator."
+msgstr "Etwas ist schief gelaufen. Bitte kontaktiere die Administratorinnen."
+
+#: inc/action-reset-password.php:29
+#: inc/action-reset-password.php:97
+#@ default
+#@ user-frontend-td
+msgid "The passwords do not match."
+msgstr "Die Passwörter stimmen nicht überein."
+
+#: inc/action-reset-password.php:71
+#: inc/action-reset-password.php:74
+#: inc/action-reset-password.php:79
+#@ default
+msgid "Invalid key"
+msgstr ""
+
+#: inc/action-reset-password.php:94
+#@ user-frontend-td
+msgid "Invalid Key."
+msgstr "Invalider Key."
+
+#: inc/helpers.php:29
+#: templates/user-login.php:25
+#: templates/user-profile.php:33
+#: templates/user-register.php:25
+#@ default
+#@ user-frontend-td
+msgid "Username"
+msgstr "Benutername"
+
+#: inc/helpers.php:30
+#: templates/user-login.php:29
+#@ default
+#@ user-frontend-td
+msgid "Password"
+msgstr "Passwort"
+
+#: inc/helpers.php:31
+#@ default
+msgid "Remember Me"
+msgstr ""
+
+#: inc/helpers.php:32
+#@ default
+msgid "Log In"
+msgstr ""
+
+#: inc/scripts.php:29
+#: templates/user-profile.php:121
+#: templates/user-reset-password.php:43
+#@ default
+msgid "Strength indicator"
+msgstr ""
+
+#: inc/scripts.php:30
+#@ default
+msgid "Very weak"
+msgstr ""
+
+#: inc/scripts.php:31
+#@ default
+msgid "Weak"
+msgstr ""
+
+#: inc/scripts.php:32
+#@ default
+msgid "Medium"
+msgstr ""
+
+#: inc/scripts.php:33
+#@ default
+msgid "Strong"
+msgstr ""
+
+#: inc/scripts.php:34
+#@ default
+msgid "Mismatch"
+msgstr ""
+
+#: inc/wp-title.php:28
+#: templates/user-login.php:17
+#@ user-frontend-td
+msgid "Login"
+msgstr "Login"
+
+#: inc/wp-title.php:31
+#: templates/user-profile.php:23
+#@ user-frontend-td
+msgid "Profile"
+msgstr "Profil"
+
+#: inc/wp-title.php:34
+#: templates/user-login.php:39
+#: templates/user-register.php:17
+#: templates/user-register.php:34
+#@ user-frontend-td
+msgid "Register"
+msgstr "Registrierung"
+
+#: inc/wp-title.php:37
+#: templates/user-reset-password.php:47
+#@ user-frontend-td
+#@ default
+msgid "Reset Password"
+msgstr "Passwort zurücksetzen"
+
+#: inc/wp-title.php:40
+#@ user-frontend-td
+msgid "Forgot Password"
+msgstr "Passwort vergessen"
+
+#: inc/wp-title.php:43
+#: templates/user-activation.php:18
+#@ user-frontend-td
+msgid "Activation"
+msgstr "Aktivierung"
+
+#: templates/user-activation.php:25
+#@ user-frontend-td
+msgid "Please enter your key."
+msgstr "Bitte gib einen Key ein."
+
+#: templates/user-activation.php:28
+#: templates/user-reset-password.php:31
+#@ user-frontend-td
+msgid "Key:"
+msgstr "Key:"
+
+#: templates/user-activation.php:32
+#@ default
+msgid "Activate"
+msgstr ""
+
+#: templates/user-forgot-password.php:18
+#@ user-frontend-td
+msgid "Lost your password?"
+msgstr "Passwort vergessen?"
+
+#: templates/user-forgot-password.php:24
+#@ default
+msgid "Please enter your username or email address. You will receive a link to create a new password via email."
+msgstr ""
+
+#: templates/user-forgot-password.php:27
+#@ default
+msgid "Username or E-mail:"
+msgstr ""
+
+#: templates/user-forgot-password.php:31
+#@ default
+msgid "Get New Password"
+msgstr ""
+
+#: templates/user-login.php:34
+#@ user-frontend-td
+msgid "Remember"
+msgstr "Erinnern"
+
+#: templates/user-login.php:35
+#@ user-frontend-td
+msgid "Submit"
+msgstr "Senden"
+
+#: templates/user-login.php:38
+#@ user-frontend-td
+msgid "Forgot Password?"
+msgstr "Passwort vergessen?"
+
+#: templates/user-profile.php:29
+#@ default
+msgid "Name"
+msgstr ""
+
+#: templates/user-profile.php:34
+#: templates/user-register.php:26
+#@ default
+msgid "Usernames cannot be changed."
+msgstr ""
+
+#: templates/user-profile.php:38
+#@ default
+msgid "First Name"
+msgstr ""
+
+#: templates/user-profile.php:43
+#@ default
+msgid "Last Name"
+msgstr ""
+
+#: templates/user-profile.php:48
+#@ default
+msgid "Nickname"
+msgstr ""
+
+#: templates/user-profile.php:48
+#: templates/user-profile.php:90
+#: templates/user-register.php:29
+#@ default
+msgid "(required)"
+msgstr ""
+
+#: templates/user-profile.php:52
+#@ default
+msgid "Display name publicly as"
+msgstr ""
+
+#: templates/user-profile.php:86
+#@ default
+msgid "Contact Info"
+msgstr ""
+
+#: templates/user-profile.php:90
+#: templates/user-register.php:29
+#@ default
+msgid "E-mail"
+msgstr ""
+
+#: templates/user-profile.php:94
+#@ default
+msgid "Website"
+msgstr ""
+
+#: templates/user-profile.php:105
+#@ default
+msgid "About Yourself"
+msgstr ""
+
+#: templates/user-profile.php:109
+#@ default
+msgid "Biographical Info"
+msgstr ""
+
+#: templates/user-profile.php:111
+#@ default
+msgid "Share a little biographical information to fill out your profile. This may be shown publicly."
+msgstr ""
+
+#: templates/user-profile.php:118
+#: templates/user-reset-password.php:35
+#@ default
+msgid "New Password"
+msgstr ""
+
+#: templates/user-profile.php:119
+#@ default
+msgid "If you would like to change the password type a new one. Otherwise leave this blank."
+msgstr ""
+
+#: templates/user-profile.php:120
+#@ default
+msgid "Type your new password again."
+msgstr ""
+
+#: templates/user-profile.php:122
+#: templates/user-reset-password.php:44
+#@ default
+msgid "Hint: The password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
+msgstr ""
+
+#: templates/user-profile.php:130
+#@ default
+msgid "Update Profile"
+msgstr ""
+
+#: templates/user-reset-password.php:18
+#@ user-frontend-td
+msgid "Reset your password?"
+msgstr "Passwort zurück setzen?"
+
+#: templates/user-reset-password.php:24
+#@ user-frontend-td
+msgid "Please enter your username, your key and your new password."
+msgstr "Bitte gib deinen Benuternamen, deinen Key und dein neues Passwort ein."
+
+#: templates/user-reset-password.php:27
+#@ user-frontend-td
+msgid "Username:"
+msgstr "Benutzername:"
+
+#: templates/user-reset-password.php:39
+#@ user-frontend-td
+msgid "Confirm Password"
+msgstr "Passwort bestätigen"
+

@@ -1,12 +1,17 @@
 <?php
 /**
- * Feature Name:	Action Register
- * Author:			HerrLlama for Inpsyde GmbH
- * Author URI:		http://inpsyde.com
- * Licence:			GPLv3
+ * Feature Name: Action Register
+ * Author:       HerrLlama for wpcoding.de
+ * Author URI:   http://wpcoding.de
+ * Licence:      GPLv3
  */
 
-add_action( 'uf_register', 'uf_perform_register_edit' );
+/**
+ * Performs the register of a user
+ *
+ * @wp-hook	uf_register
+ * @return	void
+ */
 function uf_perform_register_edit() {
 
 	if ( is_multisite() )
@@ -15,10 +20,22 @@ function uf_perform_register_edit() {
 		uf_register_standard_user();
 }
 
+/**
+ * Registers the user in a multisite setup
+ * called at uf_perform_register_edit()
+ *
+ * @return	void
+ */
 function uf_register_multisite_user() {
 	uf_validate_user_signup();
 }
 
+/**
+ * Validates the user input and registers the
+ * user, called at uf_perform_register_edit()
+ *
+ * @return	void
+ */
 function uf_validate_user_signup() {
 
 	// set user mail
@@ -26,7 +43,7 @@ function uf_validate_user_signup() {
 	$_POST[ 'user_email' ] = $_POST[ 'email' ];
 
 	// validate
-	$result = validate_user_form();
+	$result = uf_validate_user_form();
 	extract( $result );
 
 	if ( $errors->get_error_code() ) {
@@ -41,10 +58,21 @@ function uf_validate_user_signup() {
 	}
 }
 
+/**
+ * Validates the user input
+ *
+ * @return Ambigous <multitype:, mixed>
+ */
 function uf_validate_user_form() {
 	return wpmu_validate_user_signup( $_POST[ 'user_name' ], $_POST[ 'user_email' ] );
 }
 
+/**
+ * Validates the user input and registers the
+ * user, called at uf_perform_register_edit()
+ *
+ * @return	void
+ */
 function uf_register_standard_user() {
 
 	// set user mail
@@ -65,6 +93,13 @@ function uf_register_standard_user() {
 	}
 }
 
+/**
+ * Registers the new user
+ *
+ * @param	string $user_login the user name
+ * @param	string $user_email the users email address
+ * @return	mixed|Ambigous <number, WP_Error>
+ */
 function uf_register_new_user( $user_login, $user_email ) {
 	$errors = new WP_Error();
 
@@ -112,7 +147,16 @@ function uf_register_new_user( $user_login, $user_email ) {
 	return $user_id;
 }
 
-add_action( 'wpmu_signup_user_notification', 'uf_wpmu_signup_user_notification', 1, 4 );
+/**
+ * Sends the notification
+ *
+ * @wp-hook	wpmu_signup_user_notification
+ * @param	object $user
+ * @param	string $user_email
+ * @param	string $key
+ * @param	string $meta
+ * @return	void
+ */
 function uf_wpmu_signup_user_notification( $user, $user_email, $key, $meta ) {
 
 	// Send email with activation link.
@@ -142,7 +186,13 @@ function uf_wpmu_signup_user_notification( $user, $user_email, $key, $meta ) {
 	wp_mail( $user_email, $subject, $message, $message_headers );
 }
 
-add_action( 'uf_register_messages', 'uf_register_messages' );
+/**
+ * Displays a message
+ *
+ * @wp-hook	uf_register_messages
+ * @param	string $message
+ * @return	void
+ */
 function uf_register_messages( $message ) {
 
 	switch ( $message ) {
@@ -150,22 +200,22 @@ function uf_register_messages( $message ) {
 		case 'empty_username':
 		case 'invalid_username':
 		case 'illegal_names':
-			?><div class="error"><p><?php _e( 'Invalid Username.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'Invalid Username.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'username_exists':
-			?><div class="error"><p><?php _e( 'This username exists.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'This username exists.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'empty_email':
 		case 'user_email':
 		case 'invalid_email':
-			?><div class="error"><p><?php _e( 'Invalid E-Mail address.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'Invalid E-Mail address.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'email_exists':
 		case 'user_email_used':
-			?><div class="error"><p><?php _e( 'E-Mail exists.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'E-Mail exists.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'registerfail':
-			?><div class="error"><p><?php _e( 'Something went wrong. Please consult the administrator.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'Something went wrong. Please consult the administrator.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		default:
 			break;

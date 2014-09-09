@@ -1,12 +1,17 @@
 <?php
 /**
- * Feature Name:	Action Forgot Password
- * Author:			HerrLlama for Inpsyde GmbH
- * Author URI:		http://inpsyde.com
- * Licence:			GPLv3
+ * Feature Name: Action Forgot Password
+ * Author:       HerrLlama for wpcoding.de
+ * Author URI:   http://wpcoding.de
+ * Licence:      GPLv3
  */
 
-add_action( 'uf_forgot_password', 'uf_perform_forgot_password' );
+/**
+ * Checks if the forgot password call is valid
+ *
+ * @wp-hook	uf_forgot_password
+ * @return	void
+ */
 function uf_perform_forgot_password() {
 
 	$errors = uf_retrieve_password();
@@ -19,6 +24,11 @@ function uf_perform_forgot_password() {
 	}
 }
 
+/**
+ * Retrives the password for a requested login
+ *
+ * @return WP_Error|mixed|boolean
+ */
 function uf_retrieve_password() {
 	global $wpdb, $current_site;
 
@@ -92,23 +102,28 @@ function uf_retrieve_password() {
 	return TRUE;
 }
 
-add_action( 'uf_forgot_password_messages', 'uf_forgot_password_messages' );
+/**
+ * Displays a message
+ *
+ * @wp-hook	uf_forgot_password_messages
+ * @param	string $message the message id
+ */
 function uf_forgot_password_messages( $message ) {
 	switch ( $message ) {
 		case 'confirmationsend':
-			?><div class="updated"><p><?php _e( 'Check your e-mail for the confirmation link.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="updated"><p><?php _e( 'Check your e-mail for the confirmation link.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'empty_username':
-			?><div class="error"><p><?php _e( 'Please enter something.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'Please enter something.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'invalid_email':
-			?><div class="error"><p><?php _e( 'The E-Mail address is not valid.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'The E-Mail address is not valid.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'invalidcombo':
-			?><div class="error"><p><?php _e( 'Your input doesn\'t match anything.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'Your input doesn\'t match anything.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'no_password_reset':
-			?><div class="error"><p><?php _e( 'This action is not allowed.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'This action is not allowed.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		default:
 			break;

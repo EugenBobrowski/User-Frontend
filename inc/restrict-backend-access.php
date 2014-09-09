@@ -1,17 +1,29 @@
 <?php
 /**
- * Feature Name:	Restrict Backend Access
- * Author:			HerrLlama for Inpsyde GmbH
- * Author URI:		http://inpsyde.com
- * Licence:			GPLv3
+ * Feature Name: Restrict Backend Access
+ * Author:       HerrLlama for wpcoding.de
+ * Author URI:   http://wpcoding.de
+ * Licence:      GPLv3
  */
 
-add_action( 'show_admin_bar', 'uf_maybe_remove_admin_bar' );
+/**
+ * Determinates if a user has the
+ * capabilities to see the admin bar.
+ *
+ * @wp-hook	show_admin_bar
+ * @return	bool
+ */
 function uf_maybe_remove_admin_bar() {
 	return current_user_can( 'edit_posts' );
 }
 
-add_action( 'admin_init', 'uf_maybe_block_backend' );
+/**
+ * Checks if the current request should be
+ * redirected to the frontend.
+ *
+ * @wp-hook	admin_init
+ * @return	void
+ */
 function uf_maybe_block_backend() {
 	// If user can edit posts do nothing
 	if ( current_user_can( 'edit_posts' ) )
@@ -27,4 +39,5 @@ function uf_maybe_block_backend() {
 		return;
 
 	wp_safe_redirect( home_url() );
+	exit;
 }

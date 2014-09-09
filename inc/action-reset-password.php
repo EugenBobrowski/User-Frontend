@@ -1,12 +1,17 @@
 <?php
 /**
- * Feature Name:	Action Reset Password
- * Author:			HerrLlama for Inpsyde GmbH
- * Author URI:		http://inpsyde.com
- * Licence:			GPLv3
+ * Feature Name: Action Reset Password
+ * Author:       HerrLlama for wpcoding.de
+ * Author URI:   http://wpcoding.de
+ * Licence:      GPLv3
  */
 
-add_action( 'uf_reset_password', 'uf_perform_reset_password' );
+/**
+ * Performs the reset password action
+ *
+ * @wp-hook	uf_reset_password
+ * @return	void
+ */
 function uf_perform_reset_password() {
 
 	// get user
@@ -37,14 +42,26 @@ function uf_perform_reset_password() {
 	}
 }
 
-// reset password
+/**
+ * reset password
+ *
+ * @param	object $user the current user
+ * @param	string $new_pass the new password
+ * @return	void
+ */
 function uf_reset_password( $user, $new_pass ) {
 	do_action( 'password_reset', $user, $new_pass );
 	wp_set_password( $new_pass, $user->ID );
 	wp_password_change_notification( $user );
 }
 
-// check password key
+/**
+ * check password key
+ *
+ * @param	$key the key of the user
+ * @param	string $login the users login
+ * @return	mixed
+ */
 function uf_check_password_reset_key( $key, $login ) {
 	global $wpdb;
 
@@ -64,14 +81,20 @@ function uf_check_password_reset_key( $key, $login ) {
 	return $user;
 }
 
-add_action( 'uf_reset_password_messages', 'uf_reset_password_messages' );
+/**
+ * Displays a message
+ *
+ * @wp-hook	uf_reset_password_messages
+ * @param	string $message
+ * @return	void
+ */
 function uf_reset_password_messages( $message ) {
 	switch ( $message ) {
 		case 'invalid_key':
-			?><div class="error"><p><?php _e( 'Invalid Key.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'Invalid Key.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'password_reset_mismatch':
-			?><div class="error"><p><?php _e( 'The passwords do not match.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'The passwords do not match.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		default:
 			break;

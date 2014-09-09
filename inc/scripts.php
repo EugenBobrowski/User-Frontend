@@ -1,12 +1,17 @@
 <?php
 /**
- * Feature Name:	Scripts
- * Author:			HerrLlama for Inpsyde GmbH
- * Author URI:		http://inpsyde.com
- * Licence:			GPLv3
+ * Feature Name: Scripts
+ * Author:       HerrLlama for wpcoding.de
+ * Author URI:   http://wpcoding.de
+ * Licence:      GPLv3
  */
 
-add_action( 'wp_enqueue_scripts', 'uf_wp_enqueue_scripts' );
+/**
+ * Adds the needed javascript in the frontend
+ *
+ * @wp-hook	wp_enqueue_scripts
+ * @return	void
+ */
 function uf_wp_enqueue_scripts() {
 
 	$script_suffix = '.js';

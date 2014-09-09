@@ -1,15 +1,25 @@
 <?php
 /**
- * Feature Name:	Action Handler
- * Author:			HerrLlama for Inpsyde GmbH
- * Author URI:		http://inpsyde.com
- * Licence:			GPLv3
+ * Feature Name: Action Handler
+ * Author:       HerrLlama for wpcoding.de
+ * Author URI:   http://wpcoding.de
+ * Licence:      GPLv3
  */
 
-// handles all the incoming actions
-add_action( 'init', 'uf_action_handler' );
+/**
+ * handles all the incoming actions
+ *
+ * wp-hook	init
+ * @return	boolean
+ */
 function uf_action_handler() {
-	
+
+	// check if the rewrite rules have been flushed
+	if ( get_option( 'user-frontend-rewrite-rules',  FALSE ) == FALSE ) {
+		flush_rewrite_rules();
+		update_option( 'user-frontend-rewrite-rules', 1 );
+	}
+
 	// checking the action
 	if ( ! isset( $_REQUEST[ 'action' ] ) || ! has_action( 'uf_' .$_REQUEST[ 'action' ] ) )
 		return FALSE;

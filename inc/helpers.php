@@ -1,18 +1,26 @@
 <?php
 /**
- * Feature Name:	Helpers
- * Author:			HerrLlama for Inpsyde GmbH
- * Author URI:		http://inpsyde.com
- * Licence:			GPLv3
+ * Feature Name: Helpers
+ * Author:       HerrLlama for wpcoding.de
+ * Author URI:   http://wpcoding.de
+ * Licence:      GPLv3
  */
 
-// function to load the action url for the forms
+/**
+ * loads the action url for the forms
+ *
+ * @return	string
+ */
 function uf_get_action_url( $action ) {
-	
+
 	return home_url( '/user-action/?action=' . $action );
 }
 
-// standard login form arguments
+/**
+ * standard login form arguments
+ *
+ * @return	array
+ */
 function uf_login_form_args() {
 	$args = array(
 		'echo'				=> TRUE,
@@ -30,28 +38,35 @@ function uf_login_form_args() {
 		'value_username'	=> '',
 		'value_remember'	=> FALSE, // Set this to true to default the "Remember me" checkbox to checked
 	);
-	
+
 	return apply_filters( 'uf_login_form_args', $args );
 }
 
-// on submit, we have to store the post and get
-// vars in session to get them back after redirect..
-add_action( 'uf_set_request_vars', 'uf_set_request_vars' );
+/**
+ * on submit, we have to store the post and get
+ * vars in session to get them back after redirect..
+ *
+ * @wp-hook	uf_set_request_vars
+ * @return	void
+ */
 function uf_set_request_vars(){
 
 	maybe_start_session();
 
 	if ( $_SERVER[ 'REQUEST_METHOD' ] === 'POST' )
-		$_SESSION[ 'uf_post_vars' ]    = $_POST;
+		$_SESSION[ 'uf_post_vars' ] = $_POST;
 
 	// on a get- and/or post-request, you can send GET-Params
-	$_SESSION[ 'uf_get_vars' ]     = $_GET;
-
+	$_SESSION[ 'uf_get_vars' ] = $_GET;
 }
 
-// when loading the template, we have to refetch
-// after Redirect the POST and GET-vars from Session..
-add_action( 'uf_get_request_vars', 'uf_get_request_vars' );
+/**
+ * when loading the template, we have to refetch
+ * after Redirect the POST and GET-vars from Session..
+ *
+ * @wp-hook	uf_get_request_vars
+ * @return	void
+ */
 function uf_get_request_vars(){
 
 	maybe_start_session();
@@ -68,29 +83,56 @@ function uf_get_request_vars(){
 	$_REQUEST =  array_merge( $_GET, $_POST, $_REQUEST );
 }
 
-// wordpress-style function to start the session when net started.
+/**
+ * wordpress-style function to start the session when net started.
+ *
+ * @return	void
+ */
 function maybe_start_session(){
 	if ( ! session_id() )
 		session_start();
 }
 
-// Some URL Stuff
-add_action( 'lostpassword_url', 'uf_lostpassword_url' );
+/**
+ * Get the lost password url
+ *
+ * @wp-hook	lostpassword_url
+ * @param	string $url
+ * @return	string the ready made url
+ */
 function uf_lostpassword_url( $url ) {
 	return home_url( '/user-forgot-password/' );
 }
 
-add_action( 'register_url', 'uf_register_url' );
+/**
+ * Get the register url
+ *
+ * @wp-hook	register_url
+ * @param	string $url
+ * @return	string the ready made url
+ */
 function uf_register_url( $url ) {
 	return home_url( '/user-register/' );
 }
 
-add_action( 'wp_signup_location', 'uf_signup_location' );
+/**
+ * Get the register url
+ *
+ * @wp-hook	wp_signup_location
+ * @param	string $url
+ * @return	string the ready made url
+ */
 function uf_signup_location( $url ) {
 	return home_url( '/user-register/' );
 }
 
-add_action( 'login_url', 'uf_login_url', 10, 2 );
+/**
+ * Get the login url
+ *
+ * @wp-hook	login_url
+ * @param	string $url
+ * @return	string the ready made url
+ */
 function uf_login_url( $url, $redirect = '' ) {
 	$login_url = home_url( '/user-login/' );
 
@@ -100,9 +142,15 @@ function uf_login_url( $url, $redirect = '' ) {
 	return $login_url;
 }
 
-add_action( 'logout_url', 'uf_logout_url', 10, 2 );
+/**
+ * Get the logout url
+ *
+ * @wp-hook	logout_url
+ * @param	string $url
+ * @return	string the ready made url
+ */
 function uf_logout_url( $url, $redirect = '' ) {
-	
+
 	$args = array( 'action' => 'logout' );
 	if ( ! empty( $redirect ) )
 		$args[ 'redirect_to' ] = urlencode( $redirect );
@@ -111,11 +159,17 @@ function uf_logout_url( $url, $redirect = '' ) {
 	$logout_url = str_replace( '&amp;', '&', $logout_url );
 	$logout_url = add_query_arg( 'wp_uf_nonce_logout', wp_create_nonce( 'logout' ), $logout_url );
 	$logout_url = esc_html( $logout_url );
-	
+
 	return $logout_url;
 }
 
-add_action( 'edit_profile_url', 'uf_edit_profile_url' );
+/**
+ * Get the edit profile url
+ *
+ * @wp-hook	edit_profile_url
+ * @param	string $url
+ * @return	string the ready made url
+ */
 function uf_edit_profile_url( $url ) {
 	if ( is_admin() )
 		return $url;

@@ -1,10 +1,10 @@
 <?php
 /**
- * Feature Name:	Localization
- * Author:			HerrLlama for Inpsyde GmbH
- * Author URI:		http://inpsyde.com
- * Licence:			GPLv3
+ * Feature Name: Localization
+ * Author:       HerrLlama for wpcoding.de
+ * Author URI:   http://wpcoding.de
+ * Licence:      GPLv3
  */
 
 // localization
-load_plugin_textdomain( UF_TEXTDOMAIN, FALSE, dirname( plugin_basename( __FILE__ ) ) . '/../languages' );
+load_plugin_textdomain( 'user-frontend-td', FALSE, dirname( plugin_basename( __FILE__ ) ) . '/../languages' );

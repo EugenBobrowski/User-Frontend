@@ -1,12 +1,17 @@
 <?php
 /**
- * Feature Name:	Action Profile Edit
- * Author:			HerrLlama for Inpsyde GmbH
- * Author URI:		http://inpsyde.com
- * Licence:			GPLv3
+ * Feature Name: Action Profile Edit
+ * Author:       HerrLlama for wpcoding.de
+ * Author URI:   http://wpcoding.de
+ * Licence:      GPLv3
  */
 
-add_action( 'uf_profile', 'uf_perform_profile_edit' );
+/**
+ * Edits the user
+ *
+ * @wp-hook	uf_profile
+ * @return	void
+ */
 function uf_perform_profile_edit() {
 
 	// get user id
@@ -31,26 +36,32 @@ function uf_perform_profile_edit() {
 	}
 }
 
-add_action( 'uf_profile_messages', 'uf_profile_messages' );
+/**
+ * Displays a message
+ *
+ * @wp-hook	uf_profile_messages
+ * @param	string $message
+ * @return	void
+ */
 function uf_profile_messages( $message ) {
 	switch ( $message ) {
 		case 'updated':
-			?><div class="updated"><p><?php _e( 'Profile has been updated.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="updated"><p><?php _e( 'Profile has been updated.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'pass':
-			?><div class="error"><p><?php _e( 'The passwords mismatch.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'The passwords mismatch.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'invalid_email':
-			?><div class="error"><p><?php _e( 'E-Mail address is not valid.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'E-Mail address is not valid.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'empty_email':
-			?><div class="error"><p><?php _e( 'Please enter an E-Mail address.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'Please enter an E-Mail address.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'email_exists':
-			?><div class="error"><p><?php _e( 'This email is already registered, please choose another one.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="error"><p><?php _e( 'This email is already registered, please choose another one.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		case 'activated':
-			?><div class="updated"><p><?php _e( 'Your account has been activated. Now you can edit your profile.', UF_TEXTDOMAIN ); ?></p></div><?php
+			?><div class="updated"><p><?php _e( 'Your account has been activated. Now you can edit your profile.', 'user-frontend-td' ); ?></p></div><?php
 			break;
 		default:
 			break;
