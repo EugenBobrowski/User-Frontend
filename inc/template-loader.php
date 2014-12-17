@@ -19,14 +19,14 @@ function uf_template_include( $template ) {
 	if ( get_query_var( 'uf' ) == 'user-action' )
 		return;
 
-	$user_template = get_query_template( get_query_var( 'uf' ) );
+	$user_template = get_template_directory() . '/user-frontend/' . get_query_var( 'uf' ) . '.php';
 	$new_template = plugin_dir_path( __FILE__ ) . '../templates/' . get_query_var( 'uf' ) . '.php';
 	$is_uf = FALSE;
 
-	if ( $user_template ){
+	if ( file_exists( $user_template ) ) {
 		$is_uf     = TRUE;
 		$template   = $user_template;
-	} else if ( file_exists( $new_template ) ){
+	} else if ( file_exists( $new_template ) ) {
 		$is_uf     = TRUE;
 		$template   = $new_template;
 	}
