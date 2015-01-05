@@ -35,8 +35,14 @@ if ( is_user_logged_in() ) {
 					<input type="submit" name="submit" id="submit" value="<?php _e( 'Submit', 'user-frontend-td' ); ?>">
 				</p>
 				<p>
-					<a href="<?php echo home_url( '/user-forgot-password/' ); ?>"><?php _e( 'Forgot Password?', 'user-frontend-td' ); ?></a> |
-					<a href="<?php echo home_url( '/user-register/' ); ?>"><?php _e( 'Register', 'user-frontend-td' ); ?></a>
+					<a href="<?php echo home_url( '/user-forgot-password/' ); ?>"><?php _e( 'Forgot Password?', 'user-frontend-td' ); ?></a>
+					<?php
+					if ( get_option( 'users_can_register' ) && ( is_multisite() && get_site_option( 'registration' ) != 'none' ) ) :
+						$registration_url = sprintf( '<a href="%s">%s</a>', esc_url( home_url( '/user-register/' ) ), __( 'Register' ) );
+						/** This filter is documented in wp-includes/general-template.php */
+						echo ' | ' . apply_filters( 'register', $registration_url );
+					endif;
+					?>
 				</p>
 				<?php echo apply_filters( 'login_form_bottom', '', uf_login_form_args() ); ?>
 			</form>

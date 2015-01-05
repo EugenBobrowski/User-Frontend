@@ -80,9 +80,10 @@ Due to changes in the template include functions you need to move the user front
 
 = 1.0.3 =
 
-* Implemented better Template include 
+* Implemented better Template include, [#10](https://github.com/wpcodingde/User-Frontend/issues/10)
 * Added /user-error/ as special page, [#11](https://github.com/wpcodingde/User-Frontend/issues/11)
 * Fixed redirection issues, [#11](https://github.com/wpcodingde/User-Frontend/issues/11)
+* Disable register if the WordPress Settings tell so, [#12](https://github.com/wpcodingde/User-Frontend/issues/12)
 
 = 1.0.2 =
 * Fixed problems with redirection and templates
