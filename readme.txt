@@ -35,7 +35,9 @@ At any questions: Please keep in mind that this tool is free. Therefore we can't
 This plugin already has many features. But there are always more ideas to develope. Some of theme are:
 
 * Google Authentication Support
-* 
+* Better Basic Templates (more standard filters, better css-classes)
+* Basic User-Profile
+* ...
 
 == Frequently Asked Questions ==
 
