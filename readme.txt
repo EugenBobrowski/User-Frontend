@@ -84,6 +84,7 @@ Due to changes in the template include functions you need to move the user front
 * Added /user-error/ as special page, [#11](https://github.com/wpcodingde/User-Frontend/issues/11)
 * Fixed redirection issues, [#11](https://github.com/wpcodingde/User-Frontend/issues/11)
 * Disable register if the WordPress Settings tell so, [#12](https://github.com/wpcodingde/User-Frontend/issues/12)
+* Add filter for the redirection after login, [#13](https://github.com/wpcodingde/User-Frontend/issues/13)
 
 = 1.0.2 =
 * Fixed problems with redirection and templates

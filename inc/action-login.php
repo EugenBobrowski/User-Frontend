@@ -41,10 +41,15 @@ function uf_perform_login() {
 
 	// check login
 	if ( ! is_wp_error( $user ) ) {
+
+		// set the url
 		if ( isset( $_POST[ 'redirect_to' ] ) && trim( $_POST[ 'redirect_to' ] ) != '' )
-			wp_redirect( $_POST[ 'redirect_to' ] );
+			$url = $_POST[ 'redirect_to' ];
 		else
-			wp_safe_redirect( home_url( '/user-profile/' ) );
+			$url = home_url( '/user-profile/' );
+		$url = apply_filters( 'uf_perform_login_redirection_url', $url );
+
+		wp_safe_redirect( $url );
 		exit;
 	} else {
 		wp_safe_redirect( home_url( '/user-login/?message=nologin' ) );
