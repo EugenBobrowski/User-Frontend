@@ -21,10 +21,6 @@ Currently available languages:
 
 * English
 * German
-* French
-* Hispanic
-* Italian
-* Portuguese
 
 = Support =
 
