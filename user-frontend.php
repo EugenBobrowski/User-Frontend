@@ -12,6 +12,9 @@
 if ( ! function_exists( 'add_action' ) )
 	return;
 
+// set some constants
+define( 'UF_PLUGIN_BASEFILE', __FILE__ );
+
 /**
  * Inits the plugins, loads all the files
  * and registers all actions and filters
@@ -61,6 +64,10 @@ function uf_init() {
 	// the action handler
 	require_once dirname( __FILE__ ) . '/inc/action-handler.php';
 	add_action( 'init', 'uf_action_handler' );
+
+	// the special error handler
+	require_once dirname( __FILE__ ) . '/inc/action-error.php';
+	add_action( 'uf_error_messages', 'uf_error_messages' );
 
 	// user activation
 	require_once dirname( __FILE__ ) . '/inc/action-activation.php';

@@ -3,11 +3,39 @@ Contributors: wpcodingde, inpsyde, HerrLlama
 Donate Link: http://wpcoding.de
 Tags: user, profile, login, logout, frontend, theme, multisite
 Requires at least: 3.8
-Tested up to: 4.0
-Stable tag: 1.0.2
+Tested up to: 4.1
+Stable tag: 1.0.3
 License: GPLv3
 
 This plugin restricts the access to the admin panel and provides register, profile, login and logout features inside of the theme. This plugin is multisite-ready.
+
+== Description ==
+
+This plugin restricts the access to the admin panel and provides register, profile, login and logout features inside of the theme. This plugin is multisite-ready.
+
+= Languages =
+
+This plugin is polyglott. If you want to submit a language, drop a not at "hallo@wpcoding.de" with the subject "User Frontend - Add language $language".
+
+Currently available languages:
+
+* English
+* German
+* French
+* Hispanic
+* Italian
+* Portuguese
+
+= Support =
+
+At any questions: Please keep in mind that this tool is free. Therefore we can't offer free support. Of course we'll see through the [issue tracker](https://github.com/wpcodingde/User-Frontend/issues/) but we only answer feature requests and critical bugs. Besides this you can use the [wordpres.org forums](https://wordpress.org/support/plugin/user-frontend/) for technical questions.
+
+= Planned Features =
+
+This plugin already has many features. But there are always more ideas to develope. Some of theme are:
+
+* Google Authentication Support
+* 
 
 == Frequently Asked Questions ==
 
@@ -16,6 +44,7 @@ This plugin restricts the access to the admin panel and provides register, profi
 The user frontend works directly after activation. Every user will be redirected to the specific pages in the frontend. These are:
 
 *	'http://yourdomain.tld/user-action/' - This is a custom URL which no user usually sees. It performs some actions, like updating profiles etc.
+*	'http://yourdomain.tld/user-error/' - A custom error page for user mistakes, e.g. wrong nonces
 *	'http://yourdomain.tld/user-login/' - The login page
 *	'http://yourdomain.tld/user-profile/' - The profil edit page
 *	'http://yourdomain.tld/user-register/' - The user registration page
@@ -25,7 +54,7 @@ The user frontend works directly after activation. Every user will be redirected
 
 = Can I style my own pages? =
 
-Yes you can. As written in the 'Installation'-tab you only have to copy (donot move, just to be sure to have a backup) the templates from <code>/wp-content/plugins/user-frontend/templates/</code> to <code>wp-content/themes/your-theme/</code>. After that edit it wisely.
+Yes you can. As written in the 'Installation'-tab you only have to copy (donot move, just to be sure to have a backup) the templates from <code>/wp-content/plugins/user-frontend/templates/</code> to <code>wp-content/themes/your-theme/user-frontend/</code>. After that edit it wisely.
 
 = Where is the logout located? =
 
@@ -41,7 +70,19 @@ The logout is a special case. It doesn't have a page to be displayed it is just 
 
 1. Profile edition with the twentythirteen theme
 
+== Upgrade Notice ==
+
+= 1.0.3 =
+
+Due to changes in the template include functions you need to move the user frontend specific templates (user-activation.php, user-forgot-password.php, user-login.php, user-profile.php, user-register.php and user-reset-password.php) from the theme root directory to a new folder 'user-frontend' in your theme.
+
 == Changelog ==
+
+= 1.0.3 =
+
+* Implemented better Template include 
+* Added /user-error/ as special page, [#11](https://github.com/wpcodingde/User-Frontend/issues/11)
+* Fixed redirection issues, [#11](https://github.com/wpcodingde/User-Frontend/issues/11)
 
 = 1.0.2 =
 * Fixed problems with redirection and templates

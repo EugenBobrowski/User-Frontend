@@ -51,13 +51,14 @@ function uf_template_include( $template ) {
 function uf_generate_rewrite_rules( $wp_rewrite ) {
 
 	$rules = array(
-		'user-action'								=> 'index.php?uf=user-action',
-		'user-login'								=> 'index.php?uf=user-login',
-		'user-profile'								=> 'index.php?uf=user-profile',
-		'user-register'								=> 'index.php?uf=user-register',
-		'user-reset-password'						=> 'index.php?uf=user-reset-password',
-		'user-forgot-password'						=> 'index.php?uf=user-forgot-password',
-		'user-activation/?([A-Za-z0-9-_.,]+)?'		=> 'index.php?uf=user-activation&key=$matches[1]',
+		'user-action'                          => 'index.php?uf=user-action',
+		'user-error'                           => 'index.php?uf=user-error',
+		'user-login'                           => 'index.php?uf=user-login',
+		'user-profile'                         => 'index.php?uf=user-profile',
+		'user-register'                        => 'index.php?uf=user-register',
+		'user-reset-password'                  => 'index.php?uf=user-reset-password',
+		'user-forgot-password'                 => 'index.php?uf=user-forgot-password',
+		'user-activation/?([A-Za-z0-9-_.,]+)?' => 'index.php?uf=user-activation&key=$matches[1]',
 	);
 
 	$wp_rewrite->rules = $rules + $wp_rewrite->rules;
