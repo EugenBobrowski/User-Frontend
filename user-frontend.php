@@ -2,7 +2,7 @@
 /**
  * Plugin Name:	User Frontend
  * Description:	This plugin restricts the access to the admin panel and provides register, profile, login and logout features inside of the theme.
- * Version:		1.0.3
+ * Version:		1.0.4
  * Author:		HerrLlama for wpcoding.de
  * Author URI:	http://wpcoding.de
  * Licence:		GPLv3
@@ -13,7 +13,7 @@ if ( ! function_exists( 'add_action' ) )
 	return;
 
 // set some constants
-define( 'UF_PLUGIN_BASEFILE', __FILE__ );
+define( 'UF_PLUGIN_VERSION', '1.0.4' );
 
 /**
  * Inits the plugins, loads all the files

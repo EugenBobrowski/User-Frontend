@@ -4,7 +4,7 @@ Donate Link: http://wpcoding.de
 Tags: user, profile, login, logout, frontend, theme, multisite
 Requires at least: 3.8
 Tested up to: 4.1
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv3
 
 This plugin restricts the access to the admin panel and provides register, profile, login and logout features inside of the theme. This plugin is multisite-ready.
@@ -75,6 +75,10 @@ The logout is a special case. It doesn't have a page to be displayed it is just 
 Due to changes in the template include functions you need to move the user frontend specific templates (user-activation.php, user-forgot-password.php, user-login.php, user-profile.php, user-register.php and user-reset-password.php) from the theme root directory to a new folder 'user-frontend' in your theme.
 
 == Changelog ==
+
+= 1.0.4 =
+
+* Fixed critical bug with the version checkup, [#16](https://github.com/wpcodingde/User-Frontend/issues/16) 
 
 = 1.0.3 =
 

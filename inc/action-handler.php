@@ -15,8 +15,7 @@
 function uf_action_handler() {
 
 	// check if the rewrite rules have been flushed
-	$plugin_data = get_plugin_data( UF_PLUGIN_BASEFILE );
-	$plugin_version = $plugin_data[ 'Version' ];
+	$plugin_version = UF_PLUGIN_VERSION;
 	if ( get_option( 'user-frontend-rewrite-rules' . $plugin_version,  FALSE ) == FALSE ) {
 		flush_rewrite_rules();
 		update_option( 'user-frontend-rewrite-rules' . $plugin_version, 1 );
