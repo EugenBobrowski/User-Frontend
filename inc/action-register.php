@@ -143,6 +143,8 @@ function uf_register_new_user( $user_login, $user_email ) {
 	update_user_option( $user_id, 'default_password_nag', true, true ); //Set up the Password change nag.
 
 	wp_new_user_notification( $user_id, $user_pass );
+	
+	apply_filters('uf_after_register', $user_id);
 
 	return $user_id;
 }
