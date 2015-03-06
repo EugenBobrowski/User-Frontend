@@ -26,14 +26,17 @@ function uf_perform_profile_edit() {
 	$errors = edit_user( $user_id );
 
 	// check for errors (mainly password)
-	if ( ! is_wp_error( $errors ) ) {
-		wp_safe_redirect( home_url( '/user-profile/?message=updated' ) );
-		exit;
-	} else {
-		$error_code = $errors->get_error_code();
-		wp_safe_redirect( home_url( '/user-profile/?message=' . $error_code ) );
-		exit;
-	}
+	if ( ! is_wp_error( $errors ) )
+		$message = 'updated';
+	else
+		$message = $errors->get_error_code();
+
+	// set the filter
+	$url = home_url( '/user-profile/?message=' . $message );
+	$url = apply_filters( 'uf_perform_profile_edit_redirect_url', $url, $message );
+
+	wp_safe_redirect( $url );
+	exit;
 }
 
 /**
