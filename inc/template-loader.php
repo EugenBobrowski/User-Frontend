@@ -60,6 +60,7 @@ function uf_generate_rewrite_rules( $wp_rewrite ) {
 		'user-forgot-password'                 => 'index.php?uf=user-forgot-password',
 		'user-activation/?([A-Za-z0-9-_.,]+)?' => 'index.php?uf=user-activation&key=$matches[1]',
 	);
+	$rules = apply_filters( 'uf_generate_rewrite_rules', $rules );
 
 	$wp_rewrite->rules = $rules + $wp_rewrite->rules;
 }
