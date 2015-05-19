@@ -1,3 +1,7 @@
+=== ATTANTION ===
+
+The development of this plugin is inactive!
+
 === User Frontend ===
 Contributors: wpcodingde, inpsyde, HerrLlama
 Donate Link: http://wpcoding.de
